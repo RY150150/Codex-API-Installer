@@ -1,0 +1,33 @@
+# Generated Windows packages and application bundles
+*.exe
+*.msix
+Codex-API-Windows-Delivery/
+
+# Electron / Node build output
+codex-api-installer-ui/node_modules/
+codex-api-installer-ui/dist/
+codex-api-installer-ui/dist-electron/
+codex-api-installer-ui/release/
+
+# Python build output
+build/
+build-x64/
+dist/
+dist-x64/
+__pycache__/
+*.spec
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+auth.json
+config.toml
+*.key
+*.pem
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
+*.log

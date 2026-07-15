@@ -1,0 +1,33 @@
+{
+  "name": "codex-api-installer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Codex API installer and model source manager for Windows",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on http://127.0.0.1:5173 && cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .\"",
+    "build": "tsc && vite build && tsc -p tsconfig.electron.json",
+    "dist:original": "npm run build && electron-builder --config electron-builder.original.json --win portable --x64",
+    "dist:manager": "npm run build && electron-builder --config electron-builder.manager.json --win portable --x64",
+    "dist:all": "npm run build && electron-builder --config electron-builder.original.json --win portable --x64 && electron-builder --config electron-builder.manager.json --win portable --x64",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "vite": "6.0.11",
+    "typescript": "5.9.3",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "lucide-react": "0.468.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.3",
+    "@types/react-dom": "19.0.2",
+    "concurrently": "9.1.2",
+    "cross-env": "7.0.3",
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8",
+    "wait-on": "8.0.1"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "appId": "com.codex.deepseek.installer",
+  "productName": "Codex API 安装器",
+  "asar": true,
+  "icon": "assets/codex-api-installer.ico",
+  "directories": { "output": "release" },
+  "files": ["dist/**/*", "dist-electron/**/*", "package.json"],
+  "extraResources": [
+    { "from": "../setup_codex_api.ps1", "to": "payload/setup_codex_api.ps1" },
+    { "from": "../install_codex_msix.ps1", "to": "payload/install_codex_msix.ps1" },
+    { "from": "../prepare_codex_external_api.ps1", "to": "payload/prepare_codex_external_api.ps1" },
+    { "from": "../install_deepseek_relay.ps1", "to": "payload/install_deepseek_relay.ps1" },
+    { "from": "../uninstall_codex_complete.ps1", "to": "payload/uninstall_codex_complete.ps1" },
+    { "from": "../codex-api-switch.exe", "to": "payload/codex-api-switch.exe" },
+    { "from": "../deepseek-responses-relay.exe", "to": "payload/deepseek-responses-relay.exe" }
+  ],
+  "win": {
+    "target": ["portable"],
+    "artifactName": "Codex-API-Installer-${version}.${ext}"
+  }
+}
